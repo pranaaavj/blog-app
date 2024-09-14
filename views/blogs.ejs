@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head.ejs') %>
+</head>
+
+<body class="bg-dark text-light">
+  <%- include('./partials/nav.ejs') %>
+    <% if (locals.blog) { %>
+      <div class="container mt-5">
+        <div class="container w-25">
+          <img src="<%= blog.coverImgURL %>" class="img-fluid" alt="cover image" />
+        </div>
+        <div class="container mt-5 text-center">
+          <h1 class="fw-bold">
+            <%= blog.title %>
+          </h1>
+          <div class="container mt-5 f-1">
+            <%=blog.body %>
+          </div>
+        </div>
+      </div>
+      <% } %> <%- include('./partials/scripts.ejs')%>
+</body>
+
+</html>

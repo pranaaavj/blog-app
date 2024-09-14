@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head.ejs') %>
+</head>
+
+<body class="bg-dark text-light">
+  <%- include('./partials/nav.ejs') %>
+
+    <div class="container mt-4 d-flex flex-wrap justify-content-center">
+      <% if (locals.blogs) { %>
+        <% blogs.forEach(blog=> { %>
+          <div class="card text-light m-3 shadow-sm" style="
+          width: 22rem;
+          border-radius: 12px;
+          overflow: hidden;
+          background-color: #17a2b8;
+        ">
+            <img src="<%= blog.coverImgURL %>" class="card-img-top" alt="Blog Cover"
+              style="height: 180px; object-fit: cover" />
+            <div class="card-body">
+              <h5 class="card-title fw-bold">
+                <%= blog.title %>
+              </h5>
+              <p class="card-text text-muted" style="height: 60px; overflow: hidden; text-overflow: ellipsis">
+                <%= blog.body %>
+              </p>
+              <a href="/blog/<%= blog._id %>" class="btn btn-outline-light btn-sm mt-3">
+                Read More
+              </a>
+            </div>
+          </div>
+          <% }) %>
+            <% } else { %>
+              <p class="text-center mt-5">No blogs available</p>
+              <% } %>
+    </div>
+    <%- include('./partials/scripts.ejs') %>
+</body>
+
+</html>

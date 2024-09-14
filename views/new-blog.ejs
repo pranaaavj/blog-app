@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs') %>
+  </head>
+  <body class="bg-dark text-light">
+    <%- include('./partials/nav.ejs') %>
+
+    <div
+      class="container mt-5 p-4"
+      style="max-width: 600px; background-color: #17a2b8; border-radius: 10px"
+    >
+      <h2 class="text-center mb-4">Create a New Blog</h2>
+      <form action="/blog/add-new" method="post" enctype="multipart/form-data">
+        <div class="mb-4">
+          <label for="coverImg" class="form-label fw-bold">Cover Image</label>
+          <input
+            type="file"
+            class="form-control bg-dark text-light border-0"
+            name="coverImg"
+            id="coverImg"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="title" class="form-label fw-bold">Title</label>
+          <input
+            type="text"
+            class="form-control bg-dark text-light border-0"
+            name="title"
+            id="title"
+            placeholder="Enter your blog title"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="body" class="form-label fw-bold">Body</label>
+          <textarea
+            class="form-control bg-dark text-light border-0"
+            id="body"
+            name="body"
+            rows="6"
+            placeholder="Write your blog content here"
+            required
+          ></textarea>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-outline-light btn-lg px-5">
+            Create
+          </button>
+        </div>
+      </form>
+    </div>
+    <%- include('./partials/scripts.ejs') %>
+  </body>
+</html>
